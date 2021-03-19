@@ -4,6 +4,7 @@ class Reservation < ApplicationRecord
   has_many :seats
 
   def self.find_seats(options)
+    reservation = nil
     ActiveRecord::Base.transaction do
       begin
         venue = Venue.find(options[:venue_id])
@@ -15,12 +16,14 @@ class Reservation < ApplicationRecord
             seat
           end
         end
-        Reservation.create(name: options[:name], venue_id: options[:venue_id], movie_id: options[:movie_id], seats: booked)
+        if booked.any?
+          reservation = Reservation.create(name: options[:name], venue_id: options[:venue_id], movie_id: options[:movie_id], seats: booked)
+        end
       rescue StandardError => e
         Rails.logger.error e.message
         Rails.logger.error e.backtrace.join('\n')
-        nil
       end
     end
+    reservation
   end
 end

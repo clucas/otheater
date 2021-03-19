@@ -38,6 +38,7 @@ class ReservationsController < ApplicationController
       @movie = Movie.find(reservation_params[:movie_id])
       @venues = Venue.all
       @reservation = Reservation.new(name: reservation_params[:name], movie_id: reservation_params[:movie_id], venue_id: reservation_params[:venue_id])
+      @reservation.errors.add(:base, 'unable to book seats')
       respond_to do |format|
         format.html { render :new, status: :unprocessable_entity, notice: "Not seats available" }
         format.json { render json: { errors: "Not available" }, status: :unprocessable_entity }
