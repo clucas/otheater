@@ -1,7 +1,7 @@
 # README
 
 # Application
-A running version is deployed with containers on heroku: https://aqueous-ravine-19157.herokuapp.com/characters?search=spectrum
+A running version is deployed with containers on heroku: https://whispering-wave-98644.herokuapp.com
  - The web container is running on port 3000
  - The database is running on port 3432
  
@@ -13,6 +13,12 @@ Go to https://whispering-wave-98644.herokuapp.com/movies to start using the appl
 
 Load movies from the IMDB API in RapidAPI.
  - click the load button to initialize the movie catalog
+ 
+Initialize a venue
+ - Click on venues, choose a JSON file (it should have the same format as the JSON input below), uploading the file will create a venue along with available seats. 
+
+Reserve seats
+ - Click on movies, click reserve at the end of the line. Select the venue, enter a name for your reservation and the number of seats. 
 
 # Technology
  - Ruby 2.7.2
