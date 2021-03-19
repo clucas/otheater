@@ -1,0 +1,14 @@
+default: &default
+  config:
+    base_url: 'https://imdb8.p.rapidapi.com'
+    popular_movies_path: '/title/get-most-popular-movies?homeCountry=US&purchaseCountry=US&currentCountry=US'
+    movie_overview_details_path: '/title/get-overview-details'
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

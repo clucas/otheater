@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Load popular movies from IMDB</h1>
+<p>
+  <%= form_tag(movies_path, method: 'get') do %>
+    <%=  hidden_field_tag 'load', true %>
+    <%= submit_tag("Load", name: nil) %>
+  <% end %>
+  <span>This will load and display popular movies from the IMDB API. (THIS MAY TAKE UP TO A MINUTE)</span>
+</p>
+<br/>
+<br/>
+<br/>
+
+<h1>Movies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Movie</th>
+      <th>Title</th>
+      <th>Summary</th>
+      <th>Year</th>
+      <th>Genre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td>
+          <%= link_to image_tag(movie.image_url, size: "100x140", alt: movie.title), movie.imdb_link, :target => "_blank"  rescue "NA" %>
+        </td>
+        <td><%= movie.title %></td>
+        <td><%= movie.summary %></td>
+        <td><%= movie.year %></td>
+        <td><%= movie.genre %></td>
+        <td><%= link_to 'Show', movie %></td>
+        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Reserve', new_reservation_path({movie_id: movie.id}) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Movie', new_movie_path %>

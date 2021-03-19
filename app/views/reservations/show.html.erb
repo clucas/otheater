@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @reservation.name %>
+</p>
+
+<p>
+  <strong>Venue:</strong>
+  <%= @reservation.venue_id %>
+</p>
+
+<p>
+  <strong>Movie:</strong>
+  <%= @reservation.movie.title %>
+</p>
+
+<p>
+  <strong>Seats:</strong>
+  <%= @reservation.seats.pluck(:guid).join(',') %>
+</p>
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>
