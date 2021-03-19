@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_03_17_214756) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "reservation_id"
     t.index ["reservation_id"], name: "index_seats_on_reservation_id"
+    t.index ["venue_id", "guid"], name: "index_seats_on_venue_id_and_guid", unique: true
     t.index ["venue_id"], name: "index_seats_on_venue_id"
   end
 

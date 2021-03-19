@@ -1,0 +1,11 @@
+default: &default
+  heroku_host: whispering-wave-98644.herokuapp.com
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

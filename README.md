@@ -1,28 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Application
+A running version is deployed with containers on heroku: https://aqueous-ravine-19157.herokuapp.com/characters?search=spectrum
+ - The web container is running on port 3000
+ - The database is running on port 3432
+ 
+# Usage
+A running version of the application is available on Heroku:
+https://whispering-wave-98644.herokuapp.com
 
-Things you may want to cover:
+Go to https://whispering-wave-98644.herokuapp.com/movies to start using the application
 
-* Ruby version
+Load movies from the IMDB API in RapidAPI.
+ - click the load button to initialize the movie catalog
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+# Technology
+ - Ruby 2.7.2
+ - Rails 6.1.3
+ - PostgreSQL 13.2 
+ - Docker 20.10.x, Docker Compose 1.27.x
+ 
+# Local installation instructions
+ - Run
+  ```Bash
+ ./init.sh
+  ```
+ - Open http://localhost:3000
+ 
 # Exercize
 Best Available Seat:
 Write a solution to return the best seat (closest to the front & middle) given a list of open seats.
